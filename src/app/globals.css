@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.btntext > h2{
+  font-size: 1rem;
+  font-weight: 200;
+  color: rgb(202, 202, 202);
+  font-style: italic;
+  font-family: monospace;
+}
