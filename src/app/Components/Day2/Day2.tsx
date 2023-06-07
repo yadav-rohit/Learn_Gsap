@@ -2,17 +2,17 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import { gsap } from "gsap";
 import SplitType from 'split-type';
-import './Day1.css';
+import './Day2.css';
 import { FaRedo, FaExpand ,FaTimesCircle } from "react-icons/fa";
 
 
 
 type Props = {}
 
-export default function Day1({}: Props) {
+export default function Day2({}: Props) {
   const [expand , setExpand] = React.useState(true);
   const animate = () => {
-    const split = new SplitType("#target");
+    const split = new SplitType("#taget");
     gsap.to(".char", {
         y: 0,
         stagger: 0.05,
@@ -53,8 +53,8 @@ export default function Day1({}: Props) {
           :""
          }
          {/*  BoilerPlate code for day page ends here*/}
-           <p id="target"  className='inline-flex text-5xl transition-transform duration-[0.5s]'  >
- Rohit.Yadav
+           <p id="taget"  className='inline-flex text-5xl transition-transform duration-[0.5s]'  >
+ Rohit.Yadav 2
   </p>
    {/*  BoilerPlate code for day page */}
         </div>
