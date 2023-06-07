@@ -1,3 +1,6 @@
 .char{
     transform: translateY(200px);
 }
+#target{
+    clip-path: polygon(0 25%, 100% 25%, 100% 94%, 0 94%);
+}
