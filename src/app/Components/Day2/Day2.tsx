@@ -15,11 +15,12 @@ export default function Day2({}: Props) {
   const [expand , setExpand] = React.useState(true);
 
   const text = useRef(null);
-  const box = useRef(null);
 
   const reset = async () =>  {
-    await gsap.to(".box", { x: 0 ,
-      delay: 0.2,
+    const tg = text.current;
+    await gsap.to(tg, { 
+        rotate: 0 ,
+      delay: 1,
       duration: 0.5,
       ease: "bounce",});
       animate();
@@ -31,54 +32,56 @@ export default function Day2({}: Props) {
 
 
   const animate = () => {
-    gsap.to("#triggerbox", {
-      x: 100,
+    const tg = text.current;
+    gsap.to(tg, {
+        scrollTrigger: {
+            trigger: tg,
+          },
+      rotate: 180,
       duration: 2,
       ease: "bounce",
       delay: 1,
-      scrollTrigger: {
-        trigger: "#triggerbox",
-      }
+      
     });
     }
 
   return (
     <div className='w-full  flex flex-col overflow-hidden items-center p-2 justify-center rounded-md border  border-slate-600 '>
         {/*  BoilerPlate code for day page */}
-        <div className={`effect text-3xl  overflow-scroll
+        <div className={`effect text-3xl  overflow-y-scroll overflow-x-hidden 
         text-black ${
-          expand ? 'w-[100%] h-44 ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
+          expand ? 'w-[100%] h-[100px] ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
         } w-full h-full flex justify-center 
         font-semibold font-sans bg-white rounded-md `}>
            {
           !expand ?
-          <div>
-          <FaTimesCircle
-          className='absolute top-7 right-7 cursor-pointer'
-          onClick={
-            () => {
-            setExpand(!expand);
-            } 
-          }/> 
-          < FaRedo
-           className='absolute bottom-7 left-[50%] translate-x-[-50%] cursor-pointer'
+          <div className=' fixed top-7 right-7 flex gap-5'>
+           < FaRedo
+           className=' cursor-pointer'
           onClick={
             () => {
               reset();
             }
           }/> 
+          <FaTimesCircle
+          className='cursor-pointer'
+          onClick={
+            () => {
+            setExpand(!expand);
+            } 
+          }/> 
           </div>
           :""
          }
          {/*  BoilerPlate code for day page ends here*/} 
-         <div  className='flex flex-col ' >
-         <p className='inline-flex text-3xl mt-7'  >
+         <div  className='flex flex-col items-center' >
+         <p className='inline-flex text-5xl  min-h-[100%] max-h-[100vh] items-center'  >
  Scrole Down ⬇️
   </p>
-  <p className='inline-flex text-3xl mt-20 '  >
+  <p className='inline-flex text-5xl min-h-[100%] max-h-[100vh] items-center'  >
  More ❗
   </p>
-<p ref={text} id='triggerbox' className='box inline-flex text-3xl mt-20 mb-7 ' 
+<p ref={text} id='triggerbox' className='box inline-flex text-5xl mb-7 min-h-[100%] max-h-[100vh] items-center' 
 // onMouseOver={
 //   () => {
 //     animate();
