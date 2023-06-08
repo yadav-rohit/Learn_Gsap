@@ -1,9 +1,11 @@
 "use client"
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { use, useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap } from "gsap";
-import SplitType from 'split-type';
 import './Day2.css';
 import { FaRedo, FaExpand ,FaTimesCircle } from "react-icons/fa";
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 
@@ -11,26 +13,42 @@ type Props = {}
 
 export default function Day2({}: Props) {
   const [expand , setExpand] = React.useState(true);
+
+  const text = useRef(null);
+  const box = useRef(null);
+
+  const reset = async () =>  {
+    await gsap.to(".box", { x: 0 ,
+      delay: 0.2,
+      duration: 0.5,
+      ease: "bounce",});
+      animate();
+  }
+
+  useEffect(() => {
+    animate();
+  }, []);
+
+
   const animate = () => {
-    const split = new SplitType("#taget");
-    gsap.to(".char", {
-        y: 0,
-        stagger: 0.05,
-        delay: 0.2,
-        duration: 0.5,
-        });
+    gsap.to("#triggerbox", {
+      x: 100,
+      duration: 2,
+      ease: "bounce",
+      delay: 1,
+      scrollTrigger: {
+        trigger: "#triggerbox",
+      }
+    });
     }
-      useEffect(() => {
-        animate();
-        }, []);
 
   return (
     <div className='w-full  flex flex-col overflow-hidden items-center p-2 justify-center rounded-md border  border-slate-600 '>
         {/*  BoilerPlate code for day page */}
-        <div className={`effect text-3xl overflow-hidden
+        <div className={`effect text-3xl  overflow-scroll
         text-black ${
-          expand ? 'w-[100%] h-[100%] ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
-        } w-full h-full flex justify-center items-center
+          expand ? 'w-[100%] h-44 ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
+        } w-full h-full flex justify-center 
         font-semibold font-sans bg-white rounded-md `}>
            {
           !expand ?
@@ -46,16 +64,30 @@ export default function Day2({}: Props) {
            className='absolute bottom-7 left-[50%] translate-x-[-50%] cursor-pointer'
           onClick={
             () => {
-              animate();
+              reset();
             }
           }/> 
           </div>
           :""
          }
-         {/*  BoilerPlate code for day page ends here*/}
-           <p id="taget"  className='inline-flex text-5xl transition-transform duration-[0.5s]'  >
- Rohit.Yadav 2
+         {/*  BoilerPlate code for day page ends here*/} 
+         <div  className='flex flex-col ' >
+         <p className='inline-flex text-3xl mt-7'  >
+ Scrole Down ⬇️
   </p>
+  <p className='inline-flex text-3xl mt-20 '  >
+ More ❗
+  </p>
+<p ref={text} id='triggerbox' className='box inline-flex text-3xl mt-20 mb-7 ' 
+// onMouseOver={
+//   () => {
+//     animate();
+//   }
+// } 
+>
+I am triggered 🤯
+  </p>
+  </div>
    {/*  BoilerPlate code for day page */}
         </div>
         <div className="buttons inline-flex pt-3 justify-between w-full">
@@ -69,7 +101,7 @@ export default function Day2({}: Props) {
           <p className='flex gap-4'>
         <FaRedo onClick={
           () => {
-            animate();
+            reset();
           }
         }/>
         <FaExpand onClick={

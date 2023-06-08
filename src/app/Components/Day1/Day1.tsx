@@ -27,9 +27,9 @@ export default function Day1({}: Props) {
   return (
     <div className='w-full  flex flex-col overflow-hidden items-center p-2 justify-center rounded-md border  border-slate-600 '>
         {/*  BoilerPlate code for day page */}
-        <div className={`effect text-3xl overflow-hidden
+        <div className={`effect text-3xl overflow-hidden min-h-[100px]
         text-black ${
-          expand ? 'w-[100%] h-[100%] ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
+          expand ? 'w-[100%]  ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
         } w-full h-full flex justify-center items-center
         font-semibold font-sans bg-white rounded-md `}>
            {
