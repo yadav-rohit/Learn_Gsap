@@ -50,7 +50,7 @@ export default function Day2({}: Props) {
         {/*  BoilerPlate code for day page */}
         <div className={`effect text-3xl  overflow-y-scroll overflow-x-hidden 
         text-black ${
-          expand ? 'w-[100%] h-[100px] ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
+          expand ? 'w-[100%] h-[101px] ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
         } w-full h-full flex justify-center 
         font-semibold font-sans bg-white rounded-md `}>
            {
