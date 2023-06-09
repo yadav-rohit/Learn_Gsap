@@ -90,9 +90,9 @@ export default function Day3({}: Props) {
   return (
     <div className='w-full  flex flex-col overflow-hidden items-center p-2 justify-center rounded-md border  border-slate-600 '>
         {/*  BoilerPlate code for day page */}
-        <div className={`effect text-3xl  overflow-hidden 
+        <div className={`effect text-3xl  overflow-hidden
         text-black ${
-          expand ? 'w-[100%] min-h-[200px] ' : 'w-[100%] h-[100%] fixed z-20 top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
+          expand ? 'w-[100%] min-h-[200px]  relative' : 'w-[100%] h-[100%] fixed z-20 top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
         } w-full h-full flex justify-center 
         font-semibold font-sans bg-white rounded-md `}
         onMouseOver={
@@ -132,9 +132,11 @@ export default function Day3({}: Props) {
           :""
          }
          {/*  BoilerPlate code for day page ends here*/} 
-         <div  className='flex flex-col items-center' >
+         <div  className='flex flex-col justify-center items-center' >
+         <h1>Max Screen to View</h1>
          <p  ref={textf} className={`cursorr text-[14px] font-[400px] font-mono pointer-events-none`} 
 >
+  
   <p id='trget'>ROUNDED-GSAP-CURSOR-ANIMATION-</p>
 
   </p>
