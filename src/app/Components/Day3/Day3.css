@@ -1,0 +1,17 @@
+
+#trget > .line > .word >.char {
+    position: absolute;
+    transform: none;
+    top: 0px;
+}
+
+#trget{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.cursorr{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

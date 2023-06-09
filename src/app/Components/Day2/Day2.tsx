@@ -50,8 +50,8 @@ export default function Day2({}: Props) {
         {/*  BoilerPlate code for day page */}
         <div className={`effect text-3xl  overflow-y-scroll overflow-x-hidden 
         text-black ${
-          expand ? 'w-[100%] h-[101px] ' : 'w-[100%] h-[100%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
-        } w-full h-full flex justify-center 
+          expand ? 'w-[100%] h-[101px] ' : 'w-[100%] fixed z-20 h-[100%]  top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] '
+        } w-full h-full flex justify-center  
         font-semibold font-sans bg-white rounded-md `}>
            {
           !expand ?
@@ -95,10 +95,10 @@ I am triggered 🤯
         </div>
         <div className="buttons inline-flex pt-3 justify-between w-full">
           <div className='btntext'>
-            <h1>Day 1: Staggered Text Animation
+            <h1>Day 2: Scroll Trigger Animation 
             </h1>
             <h2>
-              Created a Staggered Text Animation using GSAP and SplitType.
+              Created a scroll trigger animation with gsap scroll trigger api.
             </h2>
           </div>
           <p className='flex gap-4'>
